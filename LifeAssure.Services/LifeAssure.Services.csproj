@@ -54,11 +54,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AgentService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\LifeAssure.Data\LifeAssure.Data.csproj">
+      <Project>{2e30c011-3bb4-4085-9882-5435549da027}</Project>
+      <Name>LifeAssure.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LifeAssure.Models\LifeAssure.Models.csproj">
+      <Project>{84ece036-a4c8-41ce-89c9-caff03adc312}</Project>
+      <Name>LifeAssure.Models</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
