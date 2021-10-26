@@ -47,6 +47,14 @@ namespace LifeAssure.MVC.Controllers
             return View(model);
         }
 
+        public ActionResult Details(int id)
+        {
+            var svc = CreateAgentService();
+            var model = svc.GetAgentsById(id);
+
+            return View(model);
+        }
+
         private AgentService CreateAgentService()
         {
             var userId = Guid.Parse(User.Identity.GetUserId());

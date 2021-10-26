@@ -59,5 +59,25 @@ namespace LifeAssure.Services
                 return query.ToArray();
             }
         }
+
+        public AgentDetail GetAgentById(int id)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                    .Agents
+                    .Single(e => e.AgentId == id && e.AdminId == _userId);
+                return
+                    new AgentDetail
+                    {
+                        AgentId = entity.AgentId,
+                        Name = entity.Name,
+                        LengthOfEmployment = entity.LengthOfEmployment,
+                        NumberOfCustomers = entity.NumberOfCustomers,
+                        NumberOfPolicies = entity.NumberOfPolicies
+                    };
+            }
+        }
     }
 }
