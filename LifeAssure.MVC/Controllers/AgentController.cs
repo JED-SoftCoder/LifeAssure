@@ -94,6 +94,26 @@ namespace LifeAssure.MVC.Controllers
             return View(model);
         }
 
+        [ActionName("Delete")]
+        public ActionResult Delete(int id)
+        {
+            var svc = CreateAgentService();
+            var model = svc.GetAgentById(id);
+
+            return View(model);
+        }
+
+        [HttpPost]
+        [ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeleteAgent(int id)
+        {
+            var service = CreateAgentService();
+            service.DeleteAgent(id);
+            TempData["SaveResult"] = "Your agent was deleted";
+            return RedirectToAction("Index");
+        }
+
         private AgentService CreateAgentService()
         {
             var userId = Guid.Parse(User.Identity.GetUserId());

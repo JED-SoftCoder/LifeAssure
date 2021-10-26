@@ -97,5 +97,20 @@ namespace LifeAssure.Services
                 return ctx.SaveChanges() == 1;
             }
         }
+
+        public bool DeleteAgent(int agentId)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                    .Agents
+                    .Single(e => e.AgentId == agentId && e.AdminId == _userId);
+
+                ctx.Agents.Remove(entity);
+
+                return ctx.SaveChanges() == 1;
+            }
+        }
     }
 }
