@@ -50,7 +50,7 @@ namespace LifeAssure.MVC.Controllers
         public ActionResult Details(int id)
         {
             var svc = CreateAgentService();
-            var model = svc.GetAgentsById(id);
+            var model = svc.GetAgentById(id);
 
             return View(model);
         }
