@@ -62,6 +62,7 @@ namespace LifeAssure.MVC.Controllers
             var model =
                 new AgentEdit
                 {
+                    AgentId = detail.AgentId,
                     Name = detail.Name,
                     LengthOfEmployment = detail.LengthOfEmployment,
                     NumberOfCustomers = detail.NumberOfCustomers,
