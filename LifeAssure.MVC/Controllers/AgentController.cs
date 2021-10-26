@@ -55,6 +55,45 @@ namespace LifeAssure.MVC.Controllers
             return View(model);
         }
 
+        public ActionResult Edit(int id)
+        {
+            var service = CreateAgentService();
+            var detail = service.GetAgentById(id);
+            var model =
+                new AgentEdit
+                {
+                    Name = detail.Name,
+                    LengthOfEmployment = detail.LengthOfEmployment,
+                    NumberOfCustomers = detail.NumberOfCustomers,
+                    NumberOfPolicies = detail.NumberOfPolicies
+                };
+            return View(model);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit(int id, AgentEdit model)
+        {
+            if (!ModelState.IsValid) return View(model);
+
+            if(model.AgentId != id)
+            {
+                ModelState.AddModelError("", "Id Mismatch");
+                return View(model);
+            }
+
+            var service = CreateAgentService();
+
+            if (service.UpdateAgent(model))
+            {
+                TempData["SaveResult"] = "Your agent was updated.";
+                return RedirectToAction("Index");
+            }
+
+            ModelState.AddModelError("", "Your agent could not be updated.");
+            return View(model);
+        }
+
         private AgentService CreateAgentService()
         {
             var userId = Guid.Parse(User.Identity.GetUserId());

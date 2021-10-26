@@ -79,5 +79,23 @@ namespace LifeAssure.Services
                     };
             }
         }
+
+        public bool UpdateAgent(AgentEdit model)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                    .Agents
+                    .Single(e => e.AgentId == model.AgentId && e.AdminId == _userId);
+
+                entity.Name = model.Name;
+                entity.LengthOfEmployment = model.LengthOfEmployment;
+                entity.NumberOfCustomers = model.NumberOfCustomers;
+                entity.NumberOfPolicies = model.NumberOfPolicies;
+
+                return ctx.SaveChanges() == 1;
+            }
+        }
     }
 }
