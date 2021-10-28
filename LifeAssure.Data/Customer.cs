@@ -26,6 +26,6 @@ namespace LifeAssure.Data
         public int PhoneNumber { get; set; }
         [Required]
         public string Address { get; set; }
-        public int YearsOfPolicy { get; set; }
+        
     }
 }

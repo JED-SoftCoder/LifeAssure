@@ -69,6 +69,10 @@
     <Compile Include="Migrations\202110281436123_CustomerMigration.Designer.cs">
       <DependentUpon>202110281436123_CustomerMigration.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202110281947131_RemovedUnusedPropForCustomer.cs" />
+    <Compile Include="Migrations\202110281947131_RemovedUnusedPropForCustomer.Designer.cs">
+      <DependentUpon>202110281947131_RemovedUnusedPropForCustomer.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Policy.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -86,6 +90,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202110281436123_CustomerMigration.resx">
       <DependentUpon>202110281436123_CustomerMigration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202110281947131_RemovedUnusedPropForCustomer.resx">
+      <DependentUpon>202110281947131_RemovedUnusedPropForCustomer.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

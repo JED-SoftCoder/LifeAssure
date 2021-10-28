@@ -61,5 +61,60 @@ namespace LifeAssure.Services
                 return query.ToArray();
             }
         }
+
+        public CustomerDetail GetCustomerById(int id)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                    .Customers
+                    .Single(e => e.CustomerId == id && e.AdminId == _userId);
+                return
+                    new CustomerDetail
+                    {
+                        CustomerId = entity.CustomerId,
+                        AgentId = entity.AgentId,
+                        //PolicyId = entity.PolicyId,
+                        Name = entity.Name,
+                        PhoneNumber = entity.PhoneNumber,
+                        Address = entity.Address
+                    };
+            }
+        }
+
+        public bool UpdateCustomer(CustomerEdit model)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                    .Customers
+                    .Single(e => e.CustomerId == model.CustomerId && e.AdminId == _userId);
+
+                entity.Name = model.Name;
+                entity.AgentId = model.AgentId;
+                entity.PhoneNumber = model.PhoneNumber;
+                entity.Address = model.Address;
+                //entity.PolicyId = model.PolicyId;
+
+                return ctx.SaveChanges() == 1;
+            }
+        }
+
+        public bool DeleteCustomer(int customerId)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                    .Customers
+                    .Single(e => e.CustomerId == customerId && e.AdminId == _userId);
+
+                ctx.Customers.Remove(entity);
+
+                return ctx.SaveChanges() == 1;
+            }
+        }
     }
 }
