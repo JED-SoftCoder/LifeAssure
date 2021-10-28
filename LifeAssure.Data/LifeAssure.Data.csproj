@@ -55,6 +55,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Agent.cs" />
+    <Compile Include="Customer.cs" />
     <Compile Include="IdentityModels.cs" />
     <Compile Include="Migrations\202110231436531_InitialMigration.cs" />
     <Compile Include="Migrations\202110231436531_InitialMigration.Designer.cs">
@@ -65,6 +66,7 @@
       <DependentUpon>202110262246386_AgentMigration.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Policy.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
