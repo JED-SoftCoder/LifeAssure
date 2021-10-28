@@ -48,6 +48,74 @@ namespace LifeAssure.MVC.Controllers
             return View(model);
         }
 
+        public ActionResult Details(int id)
+        {
+            var svc = CreatePolicyService();
+            var model = svc.GetPolicyById(id);
+
+            return View(model);
+        }
+
+        public ActionResult Edit(int id)
+        {
+            var service = CreatePolicyService();
+            var detail = service.GetPolicyById(id);
+            var model =
+                new PolicyEdit
+                {
+                    AgentId = detail.AgentId,
+                    CustomerId = detail.CustomerId,
+                    TypeOfPolicy = detail.TypeOfPolicy,
+                    PolicyAmount = detail.PolicyAmount,
+                    Details = detail.Details,
+                };
+            return View(model);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit(int id, PolicyEdit model)
+        {
+            if (!ModelState.IsValid) return View(model);
+
+            if (model.PolicyId != id)
+            {
+                ModelState.AddModelError("", "Id Mismatch");
+                return View(model);
+            }
+
+            var service = CreatePolicyService();
+
+            if (service.UpdatePolicy(model))
+            {
+                TempData["SaveResult"] = "Your policy was updated.";
+                return RedirectToAction("Index");
+            }
+
+            ModelState.AddModelError("", "Your policy could not be updated.");
+            return View(model);
+        }
+
+        [ActionName("Delete")]
+        public ActionResult Delete(int id)
+        {
+            var svc = CreatePolicyService();
+            var model = svc.GetPolicyById(id);
+
+            return View(model);
+        }
+
+        [HttpPost]
+        [ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeletePolicy(int id)
+        {
+            var service = CreatePolicyService();
+            service.DeletePolicy(id);
+            TempData["SaveResult"] = "Your policy was deleted";
+            return RedirectToAction("Index");
+        }
+
         private PolicyService CreatePolicyService()
         {
             var userId = Guid.Parse(User.Identity.GetUserId());

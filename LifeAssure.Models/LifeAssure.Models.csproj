@@ -63,6 +63,8 @@
     <Compile Include="CustomerEdit.cs" />
     <Compile Include="CustomerListItem.cs" />
     <Compile Include="PolicyCreate.cs" />
+    <Compile Include="PolicyDetail.cs" />
+    <Compile Include="PolicyEdit.cs" />
     <Compile Include="PolicyListItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

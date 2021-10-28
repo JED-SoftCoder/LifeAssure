@@ -106,11 +106,11 @@ namespace LifeAssure.MVC.Controllers
         [HttpPost]
         [ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public ActionResult DeleteAgent(int id)
+        public ActionResult DeleteCustomer(int id)
         {
             var service = CreateCustomerService();
             service.DeleteCustomer(id);
-            TempData["SaveResult"] = "Your agent was deleted";
+            TempData["SaveResult"] = "Your customer was deleted";
             return RedirectToAction("Index");
         }
 
