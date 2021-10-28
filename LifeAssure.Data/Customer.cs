@@ -12,12 +12,14 @@ namespace LifeAssure.Data
     {
         [Key]
         public int CustomerId { get; set; }
+        [Required]
+        public Guid AdminId { get; set; }
         [ForeignKey(nameof(Agent))]
         public int? AgentId { get; set; }
         public virtual Agent Agent { get; set; }
-        [ForeignKey(nameof(Policy))]
-        public int? PolicyId { get; set; }
-        public virtual Policy Policy { get; set; }
+        //[ForeignKey(nameof(Policy))]
+        //public int? PolicyId { get; set; }
+        //public virtual Policy Policy { get; set; }
         [Required]
         public string Name { get; set; }
         [Required]

@@ -58,6 +58,8 @@
     <Compile Include="AgentDetail.cs" />
     <Compile Include="AgentEdit.cs" />
     <Compile Include="AgentListItem.cs" />
+    <Compile Include="CustomerCreate.cs" />
+    <Compile Include="CustomerListItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

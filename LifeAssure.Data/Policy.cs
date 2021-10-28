@@ -12,6 +12,8 @@ namespace LifeAssure.Data
     {
         [Key]
         public int PolicyId { get; set; }
+        [Required]
+        public Guid AdminId { get; set; }
         [ForeignKey(nameof(Agent))]
         public int AgentId { get; set; }
         public virtual Agent Agent { get; set; }
