@@ -12,7 +12,6 @@ namespace LifeAssure.Models
         [Required]
         public int CustomerId { get; set; }
         public int? AgentId { get; set; }
-        public int? PolicyId { get; set; }
         [Required]
         [MinLength(2, ErrorMessage ="Please enter at least 2 characters.")]
         public string Name { get; set; }

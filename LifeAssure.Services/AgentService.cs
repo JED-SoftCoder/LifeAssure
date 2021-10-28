@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data.Entity;
 
 namespace LifeAssure.Services
 {
@@ -25,9 +26,7 @@ namespace LifeAssure.Services
                     AdminId = _userId,
                     AgentId = model.AgentId,
                     Name = model.Name,
-                    LengthOfEmployment = model.LengthOfEmployment,
-                    NumberOfCustomers = model.NumberOfCustomers,
-                    NumberOfPolicies = model.NumberOfPolicies
+                    LengthOfEmployment = model.LengthOfEmployment
                 };
 
             using (var ctx = new ApplicationDbContext())
@@ -52,8 +51,8 @@ namespace LifeAssure.Services
                             AgentId = e.AgentId,
                             Name = e.Name,
                             LengthOfEmployment = e.LengthOfEmployment,
-                            NumberOfCustomers = e.NumberOfCustomers,
-                            NumberOfPolicies = e.NumberOfPolicies
+                            NumberOfCustomers = e.Customers.Count,
+                            NumberOfPolicies = e.Policies.Count
                         }
                         );
                 return query.ToArray();
@@ -66,7 +65,7 @@ namespace LifeAssure.Services
             {
                 var entity =
                     ctx
-                    .Agents
+                    .Agents.Include(a => a.Customers)
                     .Single(e => e.AgentId == id && e.AdminId == _userId);
                 return
                     new AgentDetail
@@ -74,8 +73,23 @@ namespace LifeAssure.Services
                         AgentId = entity.AgentId,
                         Name = entity.Name,
                         LengthOfEmployment = entity.LengthOfEmployment,
-                        NumberOfCustomers = entity.NumberOfCustomers,
-                        NumberOfPolicies = entity.NumberOfPolicies
+                        Customers = entity.Customers.Select(c => new CustomerListItem
+                        {
+                            CustomerId = c.CustomerId,
+                            AgentId = c.AgentId,
+                            Name = c.Name,
+                            PhoneNumber = c.PhoneNumber,
+                            Address = c.Address
+                        }).ToList(),
+                        Policies = entity.Policies.Select(p => new PolicyListItem
+                        {
+                            CustomerId = p.CustomerId,
+                            AgentId = p.AgentId,
+                            PolicyId = p.PolicyId,
+                            TypeOfPolicy = p.TypeOfPolicy,
+                            PolicyAmount = p.PolicyAmount,
+                            Details = p.Details
+                        }).ToList()
                     };
             }
         }
@@ -91,8 +105,6 @@ namespace LifeAssure.Services
 
                 entity.Name = model.Name;
                 entity.LengthOfEmployment = model.LengthOfEmployment;
-                entity.NumberOfCustomers = model.NumberOfCustomers;
-                entity.NumberOfPolicies = model.NumberOfPolicies;
 
                 return ctx.SaveChanges() == 1;
             }

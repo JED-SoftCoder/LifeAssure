@@ -64,9 +64,7 @@ namespace LifeAssure.MVC.Controllers
                 {
                     AgentId = detail.AgentId,
                     Name = detail.Name,
-                    LengthOfEmployment = detail.LengthOfEmployment,
-                    NumberOfCustomers = detail.NumberOfCustomers,
-                    NumberOfPolicies = detail.NumberOfPolicies
+                    LengthOfEmployment = detail.LengthOfEmployment
                 };
             return View(model);
         }

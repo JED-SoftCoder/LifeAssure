@@ -16,7 +16,6 @@ namespace LifeAssure.Models
         [MaxLength(50, ErrorMessage = "There are too many characters in this field.")]
         public string Name { get; set; }
         public int LengthOfEmployment { get; set; }
-        public int NumberOfCustomers { get; set; }
         public int NumberOfPolicies { get; set; }
     }
 }

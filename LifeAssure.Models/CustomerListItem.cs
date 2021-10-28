@@ -13,8 +13,6 @@ namespace LifeAssure.Models
         public int CustomerId { get; set; }
         [Display(Name = "Customer's Agent Id")]
         public int? AgentId { get; set; }
-        [Display(Name = "Customer's Policy Id")]
-        public int? PolicyId { get; set; }
         [Display(Name = "Customer's Full Name")]
         public string Name { get; set; }
         [Display(Name = "Customer's Phone Number")]

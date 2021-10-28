@@ -11,7 +11,5 @@ namespace LifeAssure.Models
         public int AgentId { get; set; }
         public string Name { get; set; }
         public int LengthOfEmployment { get; set; }
-        public int NumberOfCustomers { get; set; }
-        public int NumberOfPolicies { get; set; }
     }
 }

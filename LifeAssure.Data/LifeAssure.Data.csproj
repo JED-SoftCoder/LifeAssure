@@ -85,6 +85,14 @@
     <Compile Include="Migrations\202110282140153_FixedPolicyTableInt.Designer.cs">
       <DependentUpon>202110282140153_FixedPolicyTableInt.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202110282224041_FixedAgentTable.cs" />
+    <Compile Include="Migrations\202110282224041_FixedAgentTable.Designer.cs">
+      <DependentUpon>202110282224041_FixedAgentTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202110282241025_FixedAgentTableAgain.cs" />
+    <Compile Include="Migrations\202110282241025_FixedAgentTableAgain.Designer.cs">
+      <DependentUpon>202110282241025_FixedAgentTableAgain.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Policy.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -114,6 +122,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202110282140153_FixedPolicyTableInt.resx">
       <DependentUpon>202110282140153_FixedPolicyTableInt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202110282224041_FixedAgentTable.resx">
+      <DependentUpon>202110282224041_FixedAgentTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202110282241025_FixedAgentTableAgain.resx">
+      <DependentUpon>202110282241025_FixedAgentTableAgain.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

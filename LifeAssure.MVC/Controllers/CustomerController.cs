@@ -66,7 +66,6 @@ namespace LifeAssure.MVC.Controllers
                     CustomerId = detail.CustomerId,
                     Address = detail.Address,
                     PhoneNumber = detail.PhoneNumber,
-                    PolicyId = detail.PolicyId
                 };
             return View(model);
         }

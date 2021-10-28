@@ -16,7 +16,7 @@ namespace LifeAssure.Data
         [Required]
         public string Name { get; set; }
         public int LengthOfEmployment { get; set; }
-        public int NumberOfCustomers { get; set; }
-        public int NumberOfPolicies { get; set; }
+        public virtual List<Customer> Customers { get; set; }
+        public virtual List<Policy> Policies { get; set; }
     }
 }

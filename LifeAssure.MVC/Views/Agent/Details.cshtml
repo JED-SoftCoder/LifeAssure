@@ -35,24 +35,18 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.NumberOfCustomers)
+            @Html.DisplayNameFor(model => model.Customers)
         </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.NumberOfCustomers)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.NumberOfPolicies)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.NumberOfPolicies)
-        </dd>
+        @foreach (var customer in Model)
+        {
+            <dd>
+                @customer.Name
+            </dd>
+        }
 
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.AgentId }) |
+    @Html.ActionLink("Edit", "Edit", new {  id = Model.AgentId  }) |
     @Html.ActionLink("Back to List", "Index")
 </p>

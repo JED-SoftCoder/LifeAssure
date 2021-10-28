@@ -10,7 +10,6 @@ namespace LifeAssure.Models
     {
         public int CustomerId { get; set; }
         public int? AgentId { get; set; }
-        public int? PolicyId { get; set; }
         public string Name { get; set; }
         public int PhoneNumber { get; set; }
         public string Address { get; set; }

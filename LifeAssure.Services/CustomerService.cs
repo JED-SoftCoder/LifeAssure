@@ -25,7 +25,6 @@ namespace LifeAssure.Services
                     AdminId = _userId,
                     CustomerId = model.CustomerId,
                     AgentId = model.AgentId,
-                    //PolicyId = model.PolicyId,
                     Name = model.Name,
                     PhoneNumber = model.PhoneNumber,
                     Address = model.Address
@@ -52,7 +51,6 @@ namespace LifeAssure.Services
                         {
                             CustomerId = e.CustomerId,
                             AgentId = e.AgentId,
-                            //PolicyId = e.PolicyId,
                             Name = e.Name,
                             PhoneNumber = e.PhoneNumber,
                             Address = e.Address
@@ -75,7 +73,6 @@ namespace LifeAssure.Services
                     {
                         CustomerId = entity.CustomerId,
                         AgentId = entity.AgentId,
-                        //PolicyId = entity.PolicyId,
                         Name = entity.Name,
                         PhoneNumber = entity.PhoneNumber,
                         Address = entity.Address
@@ -96,7 +93,6 @@ namespace LifeAssure.Services
                 entity.AgentId = model.AgentId;
                 entity.PhoneNumber = model.PhoneNumber;
                 entity.Address = model.Address;
-                //entity.PolicyId = model.PolicyId;
 
                 return ctx.SaveChanges() == 1;
             }
