@@ -8,6 +8,19 @@ using System.Threading.Tasks;
 
 namespace LifeAssure.Data
 {
+    public enum PolicyType
+    {
+        Life = 1,
+        Health,
+        Car,
+        House,
+        Renter,
+        Boat,
+        Misc
+    }
+
+
+
     public class Policy
     {
         [Key]
@@ -15,15 +28,15 @@ namespace LifeAssure.Data
         [Required]
         public Guid AdminId { get; set; }
         [ForeignKey(nameof(Agent))]
-        public int AgentId { get; set; }
+        public int? AgentId { get; set; }
         public virtual Agent Agent { get; set; }
         [ForeignKey(nameof(Customer))]
-        public int CustomerId { get; set; }
+        public int? CustomerId { get; set; }
         public virtual Customer Customer { get; set; }
         [Required]
-        public Guid TypeOfPolicy { get; set; }
+        public PolicyType TypeOfPolicy { get; set; }
         [Required]
-        public double PolicyAmount { get; set; }
+        public int PolicyAmount { get; set; }
         [Required]
         public string Details { get; set; }
     }
