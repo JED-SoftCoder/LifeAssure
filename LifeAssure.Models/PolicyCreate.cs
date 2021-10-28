@@ -17,7 +17,6 @@ namespace LifeAssure.Models
         [Required]
         public PolicyType TypeOfPolicy { get; set; }
         [Required]
-        [MinLength(2, ErrorMessage = "Please enter at least 2 characters.")]
         public int PolicyAmount { get; set; }
         [Required]
         [MinLength(2, ErrorMessage = "Please enter at least 2 characters.")]

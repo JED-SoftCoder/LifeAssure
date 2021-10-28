@@ -32,6 +32,9 @@
             @Html.DisplayNameFor(model => model.CustomerId)
         </th>
         <th>
+            @Html.DisplayNameFor(model => model.TypeOfPolicy)
+        </th>
+        <th>
             @Html.DisplayNameFor(model => model.PolicyAmount)
         </th>
         <th>
@@ -42,28 +45,31 @@
 
     @foreach (var item in Model)
     {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.PolicyId)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.AgentId)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CustomerId)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PolicyAmount)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Details)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
-            </td>
-        </tr>
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.PolicyId)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.AgentId)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.CustomerId)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.TypeOfPolicy)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.PolicyAmount)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Details)
+    </td>
+    <td>
+        @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+        @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+        @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+    </td>
+</tr>
     }
 
 </table>

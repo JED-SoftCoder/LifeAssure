@@ -33,7 +33,7 @@ namespace LifeAssure.MVC.Controllers
         {
             if (!ModelState.IsValid) return View(model);
 
-            PolicyService service = CreatePolicyService();
+            var service = CreatePolicyService();
 
             service.CreatePolicy(model);
 
