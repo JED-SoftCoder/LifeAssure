@@ -4,11 +4,9 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2 class="text-center">Agents</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
+
 @if (TempData.ContainsKey("SaveResult"))
 {
 
@@ -59,11 +57,14 @@
                 @Html.DisplayFor(modelItem => item.NumberOfPolicies)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new {  id=item.AgentId }) |
-                @Html.ActionLink("Details", "Details", new {  id=item.AgentId }) |
-                @Html.ActionLink("Delete", "Delete", new {  id=item.AgentId  })
+                @Html.ActionLink("Edit", "Edit", new { id = item.AgentId }, htmlAttributes: new { @class = "btn btn-warning btn-md" }) |
+                @Html.ActionLink("Details", "Details", new { id = item.AgentId }, htmlAttributes: new { @class = "btn btn-info btn-md" }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.AgentId }, htmlAttributes: new { @class = "btn btn-danger btn-md" })
             </td>
         </tr>
     }
 
 </table>
+<p class="text-center">
+    @Html.ActionLink("Create New", "Create", null, htmlAttributes: new { @class = "btn btn-success btn-lg" })
+</p>

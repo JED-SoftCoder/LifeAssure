@@ -4,7 +4,7 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
+<h2 class="text-center">Agent Details</h2>
 
 <div>
     <h4>AgentDetail</h4>
@@ -37,11 +37,17 @@
         <dt>
             @Html.DisplayNameFor(model => model.Customers)
         </dt>
-        @foreach (var customer in Model)
+        @foreach (var customer in Model.Customers)
         {
-            <dd>
                 @customer.Name
-            </dd>
+        }
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Policies)
+        </dt>
+        @foreach (var policy in Model.Policies)
+        {
+                @policy.PolicyId
         }
 
     </dl>

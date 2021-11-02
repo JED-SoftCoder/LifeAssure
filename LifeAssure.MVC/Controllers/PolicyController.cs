@@ -35,8 +35,6 @@ namespace LifeAssure.MVC.Controllers
 
             var service = CreatePolicyService();
 
-            service.CreatePolicy(model);
-
             if (service.CreatePolicy(model))
             {
                 TempData["SaveResult"] = "Your policy was created.";
