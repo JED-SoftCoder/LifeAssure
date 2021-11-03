@@ -4,55 +4,74 @@
     ViewBag.Title = "Details";
 }
 
-<h2 class="text-center">Agent Details</h2>
-
-<div>
-    <h4>AgentDetail</h4>
+<h2 class="text-center" id="pad">Agent Details</h2>
+<div class="d-flex justify-content-center text-center" id="pad">
     <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.AgentId)
-        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.AgentId)
-        </dd>
+    <div class="card" id="cardcolor">
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.Name)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Name)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Name)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Name)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.AgentId)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.LengthOfEmployment)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.AgentId)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.LengthOfEmployment)
-        </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Customers)
-        </dt>
-        @foreach (var customer in Model.Customers)
-        {
-                @customer.Name
-        }
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Policies)
-        </dt>
-        @foreach (var policy in Model.Policies)
-        {
-                @policy.PolicyId
-        }
+            <dt>
+                @Html.DisplayNameFor(model => model.LengthOfEmployment)
+            </dt>
 
-    </dl>
+            <dd>
+                @Html.DisplayFor(model => model.LengthOfEmployment)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Customers)
+            </dt>
+            @{
+                var customerList = Model.Customers.ToList();
+
+                for (int i = 0; i < customerList.Count; i++)
+                {
+                    @customerList[i].Name
+                    if (i < Model.Customers.Count - 1)
+                    {
+                        <text>,</text>
+                    }
+                }
+            }
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Policies)
+            </dt>
+            @{
+                var policyList = Model.Policies.ToList();
+
+                for (int i = 0; i < policyList.Count; i++)
+                {
+                    @policyList[i].PolicyId
+                    if (i < Model.Policies.Count - 1)
+                    {
+                        <text>,</text>
+                    }
+                }
+            }
+
+        </dl>
+    </div>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new {  id = Model.AgentId  }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Edit", "Edit", new { id = Model.AgentId }, htmlAttributes: new { @class = "btn btn-warning" }) |
+    @Html.ActionLink("Back to List", "Index", null, htmlAttributes: new { @class = "btn btn-success" })
 </p>
