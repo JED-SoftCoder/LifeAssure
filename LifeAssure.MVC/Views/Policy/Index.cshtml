@@ -4,11 +4,9 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2 class="text-center" id="pad">Policies</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
+
 @if (TempData.ContainsKey("SaveResult"))
 {
 
@@ -20,56 +18,61 @@
         @TempData["SaveResult"]
     </div>
 }
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.PolicyId)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.AgentId)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CustomerId)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.TypeOfPolicy)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.PolicyAmount)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Details)
-        </th>
-        <th></th>
-    </tr>
+<div class="example" id="pad">
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.PolicyId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AgentId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CustomerId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TypeOfPolicy)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PolicyAmount)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Details)
+            </th>
+            <th></th>
+        </tr>
 
-    @foreach (var item in Model)
-    {
-<tr>
-    <td>
-        @Html.DisplayFor(modelItem => item.PolicyId)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.AgentId)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.CustomerId)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.TypeOfPolicy)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.PolicyAmount)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.Details)
-    </td>
-    <td>
-        @Html.ActionLink("Edit", "Edit", new {  id=item.PolicyId  }) |
-        @Html.ActionLink("Details", "Details", new {  id=item.PolicyId  }) |
-        @Html.ActionLink("Delete", "Delete", new {  id=item.PolicyId  })
-    </td>
-</tr>
-    }
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PolicyId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AgentId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CustomerId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TypeOfPolicy)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PolicyAmount)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Details)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.PolicyId }, htmlAttributes: new { @class = "btn btn-warning btn-md" }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.PolicyId }, htmlAttributes: new { @class = "btn btn-info btn-md" }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.PolicyId }, htmlAttributes: new { @class = "btn btn-danger btn-md" })
+                </td>
+            </tr>
+        }
 
-</table>
+    </table>
+    <p class="text-center">
+        @Html.ActionLink("Create New", "Create", null, htmlAttributes: new { @class = "btn btn-success btn-lg" })
+    </p>
+</div>

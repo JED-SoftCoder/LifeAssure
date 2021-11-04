@@ -4,7 +4,7 @@
     ViewBag.Title = "Edit";
 }
 
-<h2 class="text-center" id="pad">Edit</h2>
+<h2 class="text-center" id="pad">Edit A Customer</h2>
 <div class="d-flex justify-content-center text-center">
 
 
@@ -17,28 +17,28 @@
             @Html.ValidationSummary(true, "", new { @class = "text-danger" })
            
             <div class="form-group" id="pad2">
-                <div class="col-md-10">
+                <div >
                     @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control", placeholder = "Customer's Name" } })
                     @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
                 </div>
             </div>
 
             <div class="form-group" id="pad2">
-                <div class="col-md-10">
+                <div >
                     @Html.EditorFor(model => model.PhoneNumber, new { htmlAttributes = new { @class = "form-control", placeholder = "Customer's Number" } })
                     @Html.ValidationMessageFor(model => model.PhoneNumber, "", new { @class = "text-danger" })
                 </div>
             </div>
 
             <div class="form-group" id="pad2">
-                <div class="col-md-10">
+                <div >
                     @Html.EditorFor(model => model.Address, new { htmlAttributes = new { @class = "form-control", placeholder = "Customer's Address" } })
                     @Html.ValidationMessageFor(model => model.Address, "", new { @class = "text-danger" })
                 </div>
             </div>
 
             <div class="form-group" id="pad2">
-                <div class="col-md-offset-2 col-md-10">
+                <div >
                     <input type="submit" value="Save" class="btn btn-primary" />
                 </div>
             </div>
@@ -51,6 +51,6 @@
         @Scripts.Render("~/bundles/jqueryval")
     }
 </div>
-<div>
+<div class="text-center" id="pad">
     @Html.ActionLink("Back to List", "Index", null, htmlAttributes: new { @class = "btn btn-success" })
 </div>

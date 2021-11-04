@@ -29,8 +29,10 @@
     margin-top: 5px;
 }
 
-#cardcolor {
-    background-image: linear-gradient(to right, #6a11cb 0%, #2575fc 100%);
+.cardcolor{
+    border: 1px solid black;
+    border-radius: 5px;
+    background-color: rgba(170, 170, 171, 0.66);
     padding: 5px 5px 5px 5px;
 }
 

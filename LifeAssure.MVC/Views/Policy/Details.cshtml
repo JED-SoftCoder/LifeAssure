@@ -4,55 +4,56 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
-
-<div>
-    <h4>PolicyDetail</h4>
+<h2 class="text-center" id="pad">Policy Details</h2>
+<div class="d-flex justify-content-center text-center" id="pad">
     <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.PolicyId)
-        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.PolicyId)
-        </dd>
+    <div class="example">
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.PolicyId)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.CustomerId)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.PolicyId)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.CustomerId)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.CustomerId)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.AgentId)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.CustomerId)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.AgentId)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.AgentId)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.PolicyAmount)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.AgentId)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.PolicyAmount)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.PolicyAmount)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Details)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.PolicyAmount)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Details)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Details)
+            </dt>
 
-    </dl>
+            <dd>
+                @Html.DisplayFor(model => model.Details)
+            </dd>
+
+        </dl>
+    </div>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new {  id = Model.PolicyId  }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+    <p class="text-center" id="pad">
+        @Html.ActionLink("Edit", "Edit", new { id = Model.PolicyId }, htmlAttributes: new { @class = "btn btn-warning" }) |
+        @Html.ActionLink("Back to List", "Index", null, htmlAttributes: new { @class = "btn btn-success" })
+    </p>
