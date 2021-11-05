@@ -16,7 +16,7 @@
             @Html.ValidationSummary(true, "", new { @class = "text-danger" })
             <div class="form-group">
                 <div class="col-md-10">
-                    @Html.EditorFor(model => model.CustomerId, new { htmlAttributes = new { @class = "form-control", placeholder = "Policy's ID" } })
+                    @Html.EditorFor(model => model.CustomerId, new { htmlAttributes = new { @class = "form-control", placeholder = "Customer's ID" } })
                     @Html.ValidationMessageFor(model => model.CustomerId, "", new { @class = "text-danger" })
                 </div>
             </div>
