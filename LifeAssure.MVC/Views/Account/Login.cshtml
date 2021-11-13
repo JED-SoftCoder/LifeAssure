@@ -16,14 +16,14 @@
                     <h4 class="text-center" id="pad">Use a local account to log in.</h4>
                     <hr />
                     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-                    <div class="form-group" id="pad2">
+                    <div class="form-group text-primary" id="pad2">
                         @Html.LabelFor(m => m.Email, new { @class = " control-label" })
                         <div id="pad2">
                             @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
                             @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
                         </div>
                     </div>
-                    <div class="form-group" id="pad2">
+                    <div class="form-group text-primary" id="pad2">
                         @Html.LabelFor(m => m.Password, new { @class = " control-label" })
                         <div id="pad2">
                             @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
@@ -32,7 +32,7 @@
                     </div>
                     <div class="form-group" id="pad2">
                         <div id="pad2">
-                            <div class="checkbox">
+                            <div class="checkbox text-primary">
                                 @Html.CheckBoxFor(m => m.RememberMe)
                                 @Html.LabelFor(m => m.RememberMe)
                             </div>
