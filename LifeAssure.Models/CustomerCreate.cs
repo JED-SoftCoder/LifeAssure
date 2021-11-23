@@ -16,7 +16,7 @@ namespace LifeAssure.Models
         [MinLength(2, ErrorMessage ="Please enter at least 2 characters.")]
         public string Name { get; set; }
         [Required]
-        public int PhoneNumber { get; set; }
+        public string PhoneNumber { get; set; }
         [Required]
         [MinLength(2, ErrorMessage ="Please enter at least 2 characters.")]
         public string Address { get; set; }

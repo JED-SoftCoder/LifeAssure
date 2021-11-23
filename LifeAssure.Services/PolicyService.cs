@@ -55,7 +55,8 @@ namespace LifeAssure.Services
                             AgentId = e.AgentId,
                             TypeOfPolicy = e.TypeOfPolicy,
                             PolicyAmount = e.PolicyAmount,
-                            Details = e.Details
+                            Details = e.Details,
+                            IsFavorited = e.IsFavorited
                         }
                         );
                 return query.ToArray();

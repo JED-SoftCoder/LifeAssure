@@ -1,0 +1,7 @@
+﻿@model bool
+
+<span>
+    <i class="bi bi-star @(Model ? "bi bi-star-fill" : "bi bi-star")"
+       data-toggle="star"
+       data-id="@ViewBag.Id"></i>
+</span>

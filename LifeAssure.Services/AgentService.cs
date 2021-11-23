@@ -52,7 +52,8 @@ namespace LifeAssure.Services
                             Name = e.Name,
                             LengthOfEmployment = e.LengthOfEmployment,
                             NumberOfCustomers = e.Customers.Count,
-                            NumberOfPolicies = e.Policies.Count
+                            NumberOfPolicies = e.Policies.Count,
+                            IsFavorited = e.IsFavorited
                         }
                         );
                 return query.ToArray();
@@ -105,6 +106,7 @@ namespace LifeAssure.Services
 
                 entity.Name = model.Name;
                 entity.LengthOfEmployment = model.LengthOfEmployment;
+                entity.IsFavorited = model.IsFavorited;
 
                 return ctx.SaveChanges() == 1;
             }

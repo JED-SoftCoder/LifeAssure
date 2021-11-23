@@ -53,7 +53,8 @@ namespace LifeAssure.Services
                             AgentId = e.AgentId,
                             Name = e.Name,
                             PhoneNumber = e.PhoneNumber,
-                            Address = e.Address
+                            Address = e.Address,
+                            IsFavorited = e.IsFavorited
                         }
                         );
                 return query.ToArray();

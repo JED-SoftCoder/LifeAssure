@@ -39,6 +39,9 @@
             <th>
                 @Html.DisplayNameFor(model => model.Details)
             </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IsFavorited)
+            </th>
             <th></th>
         </tr>
 
@@ -64,6 +67,9 @@
                     @Html.DisplayFor(modelItem => item.Details)
                 </td>
                 <td>
+                    @Html.DisplayFor(modelItem => item.IsFavorited, new { Id = item.PolicyId })
+                </td>
+                <td>
                     @Html.ActionLink("Edit", "Edit", new { id = item.PolicyId }, htmlAttributes: new { @class = "btn btn-warning btn-md" }) |
                     @Html.ActionLink("Details", "Details", new { id = item.PolicyId }, htmlAttributes: new { @class = "btn btn-info btn-md" }) |
                     @Html.ActionLink("Delete", "Delete", new { id = item.PolicyId }, htmlAttributes: new { @class = "btn btn-danger btn-md" })
@@ -72,6 +78,33 @@
         }
 
     </table>
+    @section scripts {
+        <script language="javascript" type="text/javascript">
+        $(document).ready(function () {
+            $("i[data-toggle='star' ]")
+                .css({ "cursor": "pointer" })
+                .click(function (e) {
+                    var target = $(e.target);
+                    var policyId = target.attr("data-id");
+                    var starSet = target.hasClass("glyphicon-star");
+
+                    $.ajax({
+                        method: starSet ? "DELETE" : "PUT",
+                        url: "/api/policy/" + policyId + "/star",
+                        data: null
+                    })
+                        .done(function (r) {
+                            target.removeClass();
+                            target.addClass("glyphicon " + (starSet ? "glyphicon-star-empty" : "glyphicon-star"));
+                        })
+                        .fail(function (r) {
+                            alert("Failed to change star status");
+                        });
+                });
+        });
+        </script>
+    }
+
     <p class="text-center">
         @Html.ActionLink("Create New", "Create", null, htmlAttributes: new { @class = "btn btn-success btn-lg" })
     </p>

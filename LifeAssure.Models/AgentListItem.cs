@@ -19,5 +19,8 @@ namespace LifeAssure.Models
         public int NumberOfCustomers { get; set; }
         [Display(Name = "Number of Policies Agent oversees")]
         public int NumberOfPolicies { get; set; }
+        [UIHint("Favorited")]
+        [Display(Name = "Favorite")]
+        public bool IsFavorited { get; set; }
     }
 }

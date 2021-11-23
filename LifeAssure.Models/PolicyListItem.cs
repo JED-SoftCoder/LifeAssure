@@ -22,5 +22,7 @@ namespace LifeAssure.Models
         public int PolicyAmount { get; set; }
         [Display(Name = "Details of Policy")]
         public string Details { get; set; }
+        [UIHint("Favorited")]
+        public bool IsFavorited { get; set; }
     }
 }

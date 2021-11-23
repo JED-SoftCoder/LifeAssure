@@ -16,8 +16,10 @@ namespace LifeAssure.Models
         [Display(Name = "Customer's Full Name")]
         public string Name { get; set; }
         [Display(Name = "Customer's Phone Number")]
-        public int PhoneNumber { get; set; }
+        public string PhoneNumber { get; set; }
         [Display(Name = "Customer's Address")]
         public string Address { get; set; }
+        [UIHint("Favorited")]
+        public bool IsFavorited { get; set; }
     }
 }
