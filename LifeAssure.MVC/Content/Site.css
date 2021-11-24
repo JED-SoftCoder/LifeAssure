@@ -1,12 +1,39 @@
 ﻿body {
     padding-top: 50px;
     padding-bottom: 20px;
+    background-image: linear-gradient(to right, #ec77ab 0%, #7873f5 100%);
 }
 
 /* Set padding to keep content from hitting the edges */
 .body-content {
     padding-left: 15px;
     padding-right: 15px;
+}
+
+.example {
+    margin: 5px 5px 5px 5px;
+    padding: 5px 5px 5px 5px;
+    border: 1px solid black;
+    border-radius: 5px;
+    background-color: rgba(170, 170, 171, 0.66);
+}
+
+#pad {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+#pad2{
+    margin-top: 5px;
+}
+
+.cardcolor{
+    border: 1px solid black;
+    border-radius: 5px;
+    background-color: rgba(170, 170, 171, 0.66);
+    padding: 5px 5px 5px 5px;
 }
 
 /* Override the default bootstrap behavior where horizontal description lists 

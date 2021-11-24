@@ -1,0 +1,68 @@
+﻿@model LifeAssure.Models.PolicyCreate
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2 class="text-center" id="pad">Create A Policy</h2>
+<div class="d-flex justify-content-center text-center">
+
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-horizontal" id="pad2">
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div class="form-group">
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.CustomerId, new { htmlAttributes = new { @class = "form-control", placeholder = "Customer's ID" } })
+                    @Html.ValidationMessageFor(model => model.CustomerId, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group" id="pad2">
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.AgentId, new { htmlAttributes = new { @class = "form-control", placeholder = "Agent's ID" } })
+                    @Html.ValidationMessageFor(model => model.AgentId, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group" id="pad2">
+                <div class="col-md-10">
+                    @Html.EnumDropDownListFor(model => model.TypeOfPolicy)
+                    @Html.ValidationMessageFor(model => model.TypeOfPolicy)
+                </div>
+            </div>
+
+            <div class="form-group" id="pad2">
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.PolicyAmount, new { htmlAttributes = new { @class = "form-control", placeholder = "Policy Amount" } })
+                    @Html.ValidationMessageFor(model => model.PolicyAmount, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group" id="pad2">
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Details, new { htmlAttributes = new { @class = "form-control", placeholder = "Policy Details" } })
+                    @Html.ValidationMessageFor(model => model.Details, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group" id="pad2">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Create" class="btn btn-primary" />
+                </div>
+            </div>
+        </div>
+    }
+
+    
+
+    @section Scripts {
+        @Scripts.Render("~/bundles/jqueryval")
+    }
+</div>
+<div>
+    @Html.ActionLink("Back to List", "Index", null, htmlAttributes: new { @class = "btn btn-success btn-lg" })
+</div>

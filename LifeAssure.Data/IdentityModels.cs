@@ -33,6 +33,8 @@ namespace LifeAssure.Data
         }
 
         public DbSet<Agent> Agents { get; set; }
+        public DbSet<Customer> Customers { get; set; }
+        public DbSet<Policy> Policies { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

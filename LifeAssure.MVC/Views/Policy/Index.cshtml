@@ -1,0 +1,111 @@
+﻿@model IEnumerable<LifeAssure.Models.PolicyListItem>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2 class="text-center" id="pad">Policies</h2>
+
+
+@if (TempData.ContainsKey("SaveResult"))
+{
+
+    <div class="alert alert-success fade in" role="alert">
+
+        <button type="button" class="close" data-dismiss="alert">
+            <span>&times;</span>
+        </button>
+        @TempData["SaveResult"]
+    </div>
+}
+<div class="example" id="pad">
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.PolicyId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AgentId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CustomerId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TypeOfPolicy)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PolicyAmount)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Details)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IsFavorited)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PolicyId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AgentId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CustomerId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TypeOfPolicy)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PolicyAmount)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Details)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IsFavorited, new { Id = item.PolicyId })
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.PolicyId }, htmlAttributes: new { @class = "btn btn-warning btn-md" }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.PolicyId }, htmlAttributes: new { @class = "btn btn-info btn-md" }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.PolicyId }, htmlAttributes: new { @class = "btn btn-danger btn-md" })
+                </td>
+            </tr>
+        }
+
+    </table>
+    @section scripts {
+        <script language="javascript" type="text/javascript">
+        $(document).ready(function () {
+            $("i[data-toggle='star' ]")
+                .css({ "cursor": "pointer" })
+                .click(function (e) {
+                    var target = $(e.target);
+                    var policyId = target.attr("data-id");
+                    var starSet = target.hasClass("glyphicon-star");
+
+                    $.ajax({
+                        method: starSet ? "DELETE" : "PUT",
+                        url: "/api/policy/" + policyId + "/star",
+                        data: null
+                    })
+                        .done(function (r) {
+                            target.removeClass();
+                            target.addClass("glyphicon " + (starSet ? "glyphicon-star-empty" : "glyphicon-star"));
+                        })
+                        .fail(function (r) {
+                            alert("Failed to change star status");
+                        });
+                });
+        });
+        </script>
+    }
+
+    <p class="text-center">
+        @Html.ActionLink("Create New", "Create", null, htmlAttributes: new { @class = "btn btn-success btn-lg" })
+    </p>
+</div>
