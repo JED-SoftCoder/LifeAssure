@@ -61,7 +61,7 @@
                     @Html.DisplayFor(modelItem => item.NumberOfPolicies)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.IsFavorited, new { Id = item.AgentId })
+                    @Html.CheckBoxFor(modelItem => item.IsFavorited, new { Id = item.AgentId })
                 </td>
                 <td>
                     @Html.ActionLink("Edit", "Edit", new { id = item.AgentId }, htmlAttributes: new { @class = "btn btn-warning btn-md" }) |

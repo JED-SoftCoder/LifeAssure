@@ -64,9 +64,9 @@
                     @Html.DisplayFor(modelItem => item.IsFavorited, new { Id = item.CustomerId })
                 </td>
                 <td>
-                    @Html.ActionLink("Edit", "Edit", new { id = item.AgentId }, htmlAttributes: new { @class = "btn btn-warning btn-md" }) |
-                    @Html.ActionLink("Details", "Details", new { id = item.AgentId }, htmlAttributes: new { @class = "btn btn-info btn-md" }) |
-                    @Html.ActionLink("Delete", "Delete", new { id = item.AgentId }, htmlAttributes: new { @class = "btn btn-danger btn-md" })
+                    @Html.ActionLink("Edit", "Edit", new { id = item.CustomerId }, htmlAttributes: new { @class = "btn btn-warning btn-md" }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.CustomerId }, htmlAttributes: new { @class = "btn btn-info btn-md" }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.CustomerId }, htmlAttributes: new { @class = "btn btn-danger btn-md" })
                 </td>
             </tr>
         }
